@@ -1,0 +1,37 @@
+.container__main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+  .container__form {
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+      -webkit-box-shadow: -1px 0px 5px 8px rgba(0,0,0,0.11);
+      -moz-box-shadow: -1px 0px 5px 8px rgba(0,0,0,0.11);
+      box-shadow: -1px 0px 5px 8px rgba(0,0,0,0.11);
+      border-radius: 15px;
+    /* background-color: aqua; */
+  }
+  
+  .container__login-form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .container__login-banner {
+    background-image: url("../../../assets/img/books.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 15px 15px 0;
+    height: 100%;
+    width: 50%;
+  }
+  

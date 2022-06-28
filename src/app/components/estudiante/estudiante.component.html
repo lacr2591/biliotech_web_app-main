@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Detalle de Estudiante</h2>
+      <button
+        routerLink="/estudiantes"
+        class="btn btn-danger btn-sm"
+        style="height: 32px; width: 32px"
+      >
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-4">
+        <div class="card mt-2">
+          <div class="card-header"><h4>Datos Personales</h4></div>
+          <div class="card-body" style="min-height: 500px; max-height: 600px">
+            <div class="row mt-2 mb-2">
+              <div class="col-12 d-flex justify-content-center">
+                <div class="container__image-portada-m" *ngIf="estudianteDetalle.genero=='Masculino'">
+                  
+                  <!-- <img src="" alt="" /> -->
+                </div>
+                <div class="container__image-portada-f" *ngIf="estudianteDetalle.genero=='Femenino'"></div>
+              </div>
+              <div class="col-12 mt-4">
+                <h6>
+                  Documento:<br />
+                  <small>{{ estudianteDetalle.numeroDocumento }}</small>
+                </h6>
+                <h6>
+                  Nombres y Apellidos: <br />
+                  <small
+                    >{{ estudianteDetalle.nombres }}
+                    {{ estudianteDetalle.apellidoPaterno }}
+                    {{ estudianteDetalle.apellidoMaternos }}</small
+                  >
+                </h6>
+                <h6>
+                  Sexo: <small>{{ estudianteDetalle.genero }}</small>
+                </h6>
+                <h6>
+                  Fecha de Nacimiento:<br />
+                  <small>{{ estudianteDetalle.fechaNacimiento }}</small>
+                </h6>
+                <div class="row">
+                  <div class="col">
+                    <h6>
+                      Email: <br /><small>{{ estudianteDetalle.email }}</small>
+                    </h6>
+                  </div>
+                  <div class="col">
+                    <h6>
+                      Teléfono: <br /><small>{{
+                        estudianteDetalle.telefono
+                      }}</small>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card mt-2">
+          <div class="card-header"><h4>Libros Asignados</h4></div>
+          <div class="card-body">
+            <div class="row mt-2 mb-2">
+              <div class="col" style="min-height: 500px; max-height: 600px">
+                <div style="height: 400px; overflow-y: scroll">
+                  <!-- inicio de loading -->
+                  <div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
+                    <div class="spinner-border text-primary text-center" style="width: 5rem; height: 5rem;" role="status">
+                      <span class="sr-only">Cargando datos...</span>
+                    </div>
+                  </div>
+                  <div *ngIf="isLoading" class="mt-4">
+                    <h4 class="text-center">Cargando Datos...</h4>
+                  </div>
+                  <!-- fin de loading -->
+
+                  <!-- inicio de no data -->
+                  <div *ngIf="loadingBooks" class="d-flex justify-content-center mt-5 animate__animated animate__fadeIn animate__delay-0.5s">
+                    <i class="fa fa-book fa-4x"></i>
+                  </div>
+                  <div *ngIf="loadingBooks" class="mt-4 animate__animated animate__fadeIn animate__delay-0.5s">
+                    <h2 class="text-center">No hay libros asignados</h2>
+                  </div>
+                  <!-- fin de no data -->
+
+                  <div
+                    class="card mb-3"
+                    style="max-width: 90%"
+                    *ngFor="let libro of libros"
+                  >
+                    <div class="row no-gutters animate__animated animate__fadeIn animate__delay-0.5s">
+                      <div class="col-md-4" >
+                        <img 
+                          src="{{ libro.coverLink }}"
+                          class="card-img"
+                          alt="..."
+                        />
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            {{ libro.title }}
+                          </h5>
+                          <p class="card-text">
+                            {{ libro.synopsys }}
+                          </p>
+                          <p class="card-text">
+                            <small class="text-danger"
+                              ><strong
+                                >Edición: {{ libro.edition }}</strong
+                              ></small
+                            >
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

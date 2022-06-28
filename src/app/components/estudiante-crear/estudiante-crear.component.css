@@ -1,0 +1,10 @@
+.container__image-portada {
+    -webkit-box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+    -moz-box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+    box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+  
+    border: 2px solid #C8C9CA;
+    border-radius: 15px;
+    height: 300px;
+    width: 200px;
+  }

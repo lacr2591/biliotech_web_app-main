@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="mt-5">
+    <h2>Stock de Libros - Biblioteca</h2>
+    <hr />
+    <div class="row my-4 d-flex justify-content-between">
+      <div class="col">
+        <input
+          name="librosFilters"
+          [(ngModel)]="descripcion"
+          class="form-control"
+          type="text"
+          placeholder="Ingrese texto a buscar" (ngModelChange)="filtrado()"
+        />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col d-flex justify-content-end">
+            <button routerLink="/libro-crear" class="btn btn-primary">
+              <i class="fa fa-plus"> Agregar libro</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table mt-3">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Puntuacion</th>
+          <th scope="col">Stock</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="tBody" class="animate__animated animate__fadeIn animate__delay-2s">
+        <tr
+          *ngFor="
+            let libro of libros | filterBooks: librosFilters;
+            let i = index
+          "
+        >
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ libro.title }}</td>
+          <td>{{ libro.categorias }}</td>
+          <td>
+            <div class="rating-css">
+              <div class="star-icon">
+                <label *ngIf="libro.puntuacion > 0" class="fa fa-star"></label>
+                <label *ngIf="libro.puntuacion > 1" class="fa fa-star"></label>
+                <label *ngIf="libro.puntuacion > 2" class="fa fa-star"></label>
+                <label *ngIf="libro.puntuacion > 3" class="fa fa-star"></label>
+                <label *ngIf="libro.puntuacion > 4" class="fa fa-star"></label>
+              </div>
+            </div>
+          </td>
+          <td>{{ libro.stockDisponible }}</td>
+          <td class="col-3 text-center">
+            <button
+              routerLink="/libro/{{ libro.id_Libro }}"
+              class="btn btn-primary btn-sm ms-1"
+            >
+              Detalle
+            </button>
+            <button
+              (click)="modificarStock(libro)"
+              class="btn btn-secondary btn-sm ms-1"
+            >
+              <i class="fa fa-sync-alt"></i> Stock
+            </button>
+            <button
+              (click)="eliminarLibro(libro)"
+              class="btn btn-danger btn-sm ms-1"
+            >
+              <i class="fa fa-trash"></i> Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
+      <div
+        class="spinner-border text-primary text-center"
+        style="width: 5rem; height: 5rem"
+        role="status"
+      >
+        <span class="sr-only">Cargando datos...</span>
+      </div>
+    </div>
+    <div *ngIf="isLoading" class="mt-4">
+      <h4 class="text-center">Cargando Datos...</h4>
+    </div>
+  </div>
+</div>

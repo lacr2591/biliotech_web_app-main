@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="mt-5">
+    <h2>Listado de Estudiantes</h2>
+    <hr />
+
+    <div class="row my-4 d-flex justify-content-between">
+      <div class="col">
+        <input
+          name="estudiantesFilters"
+          [(ngModel)]="descripcion"
+          class="form-control"
+          type="text"
+          placeholder="Ingrese texto para filtrar" (ngModelChange)="filtrado()"
+        />
+        
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col d-flex justify-content-end">
+            <button routerLink="/estudiante-crear" class="btn btn-primary">
+              <i class="fa fa-plus"> Agregar estudiante</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="form-row d-flex justify-content-end">
+      <button routerLink="/estudiante-crear" class="btn btn-primary">
+        <i class="fa fa-plus"> Agregar estudiante</i>
+      </button>
+    </div> -->
+    <table class="table mt-3 table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido Paterno</th>
+          <th scope="col">Apellido Materno</th>
+          <th scope="col">Documento</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="tBody" class="animate__animated animate__fadeIn animate__delay-1s">
+        <tr
+          *ngFor="
+            let estudiante of estudiantes | filter: estudiantesFilters;
+            let i = index
+          "
+        >
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ estudiante.nombres }}</td>
+          <td>{{ estudiante.apellidoPaterno }}</td>
+          <td>{{ estudiante.apellidoMaternos }}</td>
+          <td>{{ estudiante.numeroDocumento }}</td>
+          <td class="col-2 text-center">
+            <button
+              (click)="getEstudianteById(estudiante.id)"
+              class="btn btn-primary btn-sm ms-1"
+            >
+              Detalle
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isLoading" class="d-flex justify-content-center mt-5">
+      <div
+        class="spinner-border text-primary text-center"
+        style="width: 5rem; height: 5rem"
+        role="status"
+      >
+        <span class="sr-only">Cargando datos...</span>
+      </div>
+    </div>
+    <div *ngIf="isLoading" class="mt-4">
+      <h4 class="text-center">Cargando Datos...</h4>
+    </div>
+  </div>
+</div>

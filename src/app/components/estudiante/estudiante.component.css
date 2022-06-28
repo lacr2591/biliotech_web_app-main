@@ -1,0 +1,30 @@
+.container__image-portada-m {
+    -webkit-box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+    -moz-box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+    box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+  
+    border: 2px solid #C8C9CA;
+    border-radius: 15px;
+    height: 200px;
+    width: 150px;
+
+    background-image: url(https://www.superprof.es/imagenes/anuncios/profesor-home-estudiante-matematica-pura-busca-estudiantes-colegio-universitarios-para-todo-tipo-curso-matematicas-bogota.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .container__image-portada-f {
+    -webkit-box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+    -moz-box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+    box-shadow: -1px 0px 5px 8px rgba(0, 0, 0, 0.11);
+  
+    border: 2px solid #C8C9CA;
+    border-radius: 15px;
+    height: 200px;
+    width: 150px;
+
+    background-image: url(https://thumbs.dreamstime.com/b/mujer-estudiante-con-los-libros-que-habla-encendido-28063627.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

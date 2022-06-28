@@ -1,0 +1,9 @@
+.border-charts {
+  border: solid 1px grey;
+  border-radius: 15px;
+  margin: 6px;
+  -webkit-box-shadow: 4px 6px 7px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 6px 7px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 6px 7px -1px rgba(0, 0, 0, 0.75);
+  background-color: #f5f5f5;
+}

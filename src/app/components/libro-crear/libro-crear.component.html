@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Agregar a biblioteca</h2>
+      <button
+        routerLink="/libros"
+        class="btn btn-danger btn-sm"
+        style="height: 32px; width: 32px"
+      >
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <hr />
+    <table class="table mt-3">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th class="text-center" scope="col">Edición</th>
+          <th class="text-center" scope="col">Libro</th>
+          <!-- <th class="text-center" scope="col">Cantidad</th> -->
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let libro of librosGeneral; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ libro.title }}</td>
+          <td class="text-center">{{ libro.edicion }}</td>
+          <td class="text-center">
+            <img style="height: 42px;" [src]= libro.coverLink alt="">
+            </td>
+          <!-- <td class="text-center">{{ libro.cantidad }}</td> -->
+          <td class="col-2 text-center">
+            <button (click)="agregarLibro(libro)" class="btn btn-primary btn-sm ms-1"><i class="fa fa-plus"></i> Agregar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
